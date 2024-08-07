@@ -6,6 +6,7 @@ export class hotel{
     checkInDate?:Date;
     checkOutDate?:Date;
     constructor(name:string,id:string,location:string){
+        console.log("in hotel")
         this.name=name;
         this.id=id;
         this.location=location;
