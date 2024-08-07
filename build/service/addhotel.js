@@ -1,25 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.hotels = void 0;
-const hotel_1 = require("../model/hotel");
-exports.hotels = [];
+exports.addHotel = addHotel;
+exports.showHotels = showHotels;
+exports.hotels = [
+    {
+        name: 'Hotel Tulip Inn',
+        id: '234',
+        location: 'Banglore',
+        isAvailable: true,
+    }
+];
 function addHotel(h1) {
     exports.hotels.push(h1);
+    console.log(exports.hotels);
 }
-function checkHotel(id) {
-    try {
-        let val = exports.hotels.filter(function (val) {
-            return val.id == id;
-        });
-        if (val.length == 0) {
-            throw new Error("No Hotel found with provided id");
-        }
-    }
-    catch (e) {
-        console.log(e.message);
-    }
+function showHotels() {
+    console.log(exports.hotels);
 }
-let h1 = new hotel_1.hotel('Tulip', '1', 'Banglore');
-addHotel(h1);
-checkHotel('hfhsf');
-console.log(exports.hotels);
