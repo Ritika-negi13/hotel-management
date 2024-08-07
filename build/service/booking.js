@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.bookHotel = bookHotel;
 const addhotel_1 = require("../service/addhotel");
+var read = require('readline-sync');
 function bookHotel(id) {
     try {
         let val = addhotel_1.hotels.findIndex((hotel) => hotel.id == id);
@@ -11,12 +12,12 @@ function bookHotel(id) {
         else {
             try {
                 if (addhotel_1.hotels[val].isAvailable) {
-                    addhotel_1.hotels[val].checkInDate = new Date('24-05-2025');
-                    addhotel_1.hotels[val].checkOutDate = new Date('30-05-2025');
+                    addhotel_1.hotels[val].checkInDate = new Date();
+                    addhotel_1.hotels[val].checkOutDate = new Date();
                     addhotel_1.hotels[val].isAvailable = false;
                 }
                 else {
-                    throw new Error("not available");
+                    throw new Error(" Room not available");
                 }
             }
             catch (e) {
