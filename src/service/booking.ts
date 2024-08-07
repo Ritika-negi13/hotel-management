@@ -1,5 +1,5 @@
 import {hotels} from '../service/addhotel'
-
+var read = require('readline-sync');
 export function bookHotel(id:string){
     try{
         let val=hotels.findIndex((hotel)=>hotel.id==id);
@@ -12,13 +12,15 @@ export function bookHotel(id:string){
             try{
                 if(hotels[val].isAvailable)
                 {
-                    hotels[val].checkInDate=new Date('24-05-2025');
-                    hotels[val].checkOutDate=new Date('30-05-2025');
+                    
+                    hotels[val].checkInDate=new Date();
+                    hotels[val].checkOutDate=new Date();
                     hotels[val].isAvailable=false;
+                    console.log("Room Booked")
                 }
                 else
                 {
-                    throw new Error("not available")
+                    throw new Error(" Room not available")
                 }
             }
             catch(e:any){
